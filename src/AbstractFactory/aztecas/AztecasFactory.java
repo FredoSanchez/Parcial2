@@ -5,10 +5,11 @@
  */
 package AbstractFactory.aztecas;
 
+
 /**
  *
  * @author fredy
  */
-public interface AztecasFactory {
+public class AztecasFactory {
     
 }
