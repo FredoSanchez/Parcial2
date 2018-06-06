@@ -5,12 +5,13 @@
  */
 package AbstractFactory.aztecas;
 
-
+import AbstractFactory.aztecas.construcciones.Construccion;
 
 /**
  *
  * @author fredy
  */
-public class Azteca{
-
+public interface Azteca{
+    
+    Construccion getConstruccion(String type);
 }
