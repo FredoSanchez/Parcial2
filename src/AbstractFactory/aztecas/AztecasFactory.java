@@ -7,6 +7,7 @@ package AbstractFactory.aztecas;
 
 import AbstractFactory.AbstractFactory;
 import AbstractFactory.aztecas.construcciones.ConstruccionesFactory;
+import AbstractFactory.aztecas.personajes.PersonajesFactory;
 
 /**
  *
@@ -19,6 +20,8 @@ public class AztecasFactory implements AbstractFactory {
        switch (type) {
             case "construccion":
                 return new ConstruccionesFactory();
+            case "personaje":
+                return new PersonajesFactory();
         }
         return null;
     }
