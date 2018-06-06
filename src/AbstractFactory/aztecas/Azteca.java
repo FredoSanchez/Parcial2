@@ -6,6 +6,7 @@
 package AbstractFactory.aztecas;
 
 import AbstractFactory.aztecas.construcciones.Construccion;
+import AbstractFactory.aztecas.personajes.Personaje;
 
 /**
  *
@@ -14,4 +15,5 @@ import AbstractFactory.aztecas.construcciones.Construccion;
 public interface Azteca{
     
     Construccion getConstruccion(String type);
+    Personaje getPersonaje(String type);
 }
