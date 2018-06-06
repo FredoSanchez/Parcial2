@@ -5,10 +5,12 @@
  */
 package AbstractFactory;
 
+import AbstractFactory.aztecas.Azteca;
+
 /**
  *
  * @author fredy
  */
 public interface AbstractFactory {
-    
+    Azteca getRazaAzteca(String raza);
 }
