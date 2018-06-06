@@ -9,6 +9,9 @@ package AbstractFactory.aztecas.personajes;
  *
  * @author fredy
  */
-public class GuerreroAguila {
-    
+public class GuerreroAguila implements Personaje{
+    @Override
+    public void atacar(){
+        System.out.println("Guerrero aguila atacando");
+    }
 }
