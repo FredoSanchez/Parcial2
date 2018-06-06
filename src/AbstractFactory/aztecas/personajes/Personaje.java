@@ -10,5 +10,5 @@ package AbstractFactory.aztecas.personajes;
  * @author fredy
  */
 public interface Personaje {
-    
+    void atacar();
 }
