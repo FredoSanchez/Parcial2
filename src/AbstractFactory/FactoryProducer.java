@@ -5,10 +5,18 @@
  */
 package AbstractFactory;
 
+import AbstractFactory.aztecas.AztecasFactory;
+
 /**
  *
  * @author fredy
  */
 public class FactoryProducer {
-    
+    public static AbstractFactory getFactory(String type){
+        switch(type){
+            case "Azteca":
+                return new AztecasFactory();
+        }
+        return null;
+    }
 }
