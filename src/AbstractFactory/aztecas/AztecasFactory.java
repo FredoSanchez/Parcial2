@@ -5,11 +5,21 @@
  */
 package AbstractFactory.aztecas;
 
+import AbstractFactory.AbstractFactory;
+import AbstractFactory.aztecas.construcciones.ConstruccionesFactory;
 
 /**
  *
  * @author fredy
  */
-public class AztecasFactory {
-    
+public class AztecasFactory implements AbstractFactory {
+
+    @Override
+    public Azteca getRazaAzteca(String type) {
+       switch (type) {
+            case "construccion":
+                return new ConstruccionesFactory();
+        }
+        return null;
+    }
 }
