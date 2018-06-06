@@ -6,6 +6,7 @@
 package AbstractFactory.aztecas.construcciones;
 
 import AbstractFactory.aztecas.Azteca;
+import AbstractFactory.aztecas.personajes.Personaje;
 
 /**
  *
@@ -18,6 +19,11 @@ public class ConstruccionesFactory implements Azteca{
             case "Sacrificio":
                 return new TemploSacrificios();
         }
+        return null;
+    }
+    
+    @Override
+    public Personaje getPersonaje(String type){
         return null;
     }
     
