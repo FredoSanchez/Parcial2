@@ -17,8 +17,20 @@ public class ConstruccionesFactory implements Azteca{
     @Override
     public Construccion getConstruccion(String type){
         switch (type){
+            case "mando":
+                return new CentroMando();
             case "sacrificio":
                 return new TemploSacrificios();
+            case "cultivo":
+                return new RecolectorCultivo();
+            case "pesca":
+                return new RecolectorPesca();
+            case "cuartelGuecha":
+                return new CuartelGuecha();
+            case "cuartelJaguares":
+                return new CuartelJaguares();
+            case "chozaAguila":
+                return new ChozaAguila();
         }
         return null;
     }
