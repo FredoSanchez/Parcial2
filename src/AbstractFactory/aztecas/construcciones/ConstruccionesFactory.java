@@ -7,6 +7,7 @@ package AbstractFactory.aztecas.construcciones;
 
 import AbstractFactory.aztecas.Azteca;
 import AbstractFactory.aztecas.personajes.Personaje;
+import AbstractFactory.aztecas.vehiculos.Vehiculo;
 
 /**
  *
@@ -16,7 +17,7 @@ public class ConstruccionesFactory implements Azteca{
     @Override
     public Construccion getConstruccion(String type){
         switch (type){
-            case "Sacrificio":
+            case "sacrificio":
                 return new TemploSacrificios();
         }
         return null;
@@ -24,6 +25,11 @@ public class ConstruccionesFactory implements Azteca{
     
     @Override
     public Personaje getPersonaje(String type){
+        return null;
+    }
+    
+    @Override
+    public Vehiculo getVehiculo(String type){
         return null;
     }
     
