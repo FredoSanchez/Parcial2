@@ -25,6 +25,10 @@ public class PersonajesFactory implements Azteca {
         switch(type){
             case "aguila":
                 return new GuerreroAguila();
+            case "jaguar":
+                return new GuerreroJaguar();
+            case "guecha":
+                return new GuerreroGuecha();
         }
         return null;
     }
