@@ -9,7 +9,9 @@ package AbstractFactory.aztecas.vehiculos;
  *
  * @author fredy
  */
-public interface Vehiculo {
-    void transportar();
-    
+public class Caballo implements Vehiculo{
+    @Override
+    public void transportar(){
+        System.out.println("Transportando...");
+    }
 }

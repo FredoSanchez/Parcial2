@@ -27,6 +27,10 @@ public class VehiculosFactory implements Azteca {
     
     @Override
     public Vehiculo getVehiculo(String type){
+        switch(type){
+            case "caballo":
+                return new Caballo();
+        }
         return null;
     }
 
