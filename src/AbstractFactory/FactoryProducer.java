@@ -7,6 +7,7 @@ package AbstractFactory;
 
 import AbstractFactory.aztecas.AztecasFactory;
 import AbstractFactory.chinos.ChinosFactory;
+import AbstractFactory.vikingos.VikingosFactory;
 
 /**
  *
@@ -19,6 +20,8 @@ public class FactoryProducer {
                 return new AztecasFactory();
             case "China":
                 return new ChinosFactory();
+            case "Vikinga":
+                return new VikingosFactory();
         }
         return null;
     }
