@@ -30,6 +30,8 @@ public class VehiculosFactory implements Azteca {
         switch(type){
             case "caballo":
                 return new Caballo();
+            case "carreta":
+                return new Carreta();
         }
         return null;
     }
