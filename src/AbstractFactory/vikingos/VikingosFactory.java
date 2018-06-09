@@ -5,10 +5,38 @@
  */
 package AbstractFactory.vikingos;
 
+import AbstractFactory.AbstractFactory;
+import AbstractFactory.vikingos.construcciones.ConstruccionesFactory;
+import AbstractFactory.vikingos.personajes.PersonajesFactory;
+import AbstractFactory.vikingos.vehiculos.VehiculosFactory;
+import AbstractFactory.aztecas.Azteca;
+import AbstractFactory.chinos.Chino;
 /**
  *
  * @author fredy
  */
-public interface VikingosFactory {
+public class VikingosFactory implements AbstractFactory{
+    @Override
+    public Azteca getRazaAzteca(String type){
+        return null;
+    }
+
+    @Override
+    public Chino getRazaChina(String type) {
+       
+        return null;
+    }
     
+    @Override
+    public Vikingo getRazaVikinga(String type){
+        switch (type) {
+            case "edificacion":
+                return new ConstruccionesFactory();
+            case "milicia":
+                return new PersonajesFactory();
+            case "transporte":
+                return new VehiculosFactory();
+        }
+        return null;
+    }
 }
