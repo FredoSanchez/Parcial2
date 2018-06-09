@@ -9,6 +9,8 @@ import AbstractFactory.AbstractFactory;
 import AbstractFactory.aztecas.construcciones.ConstruccionesFactory;
 import AbstractFactory.aztecas.personajes.PersonajesFactory;
 import AbstractFactory.aztecas.vehiculos.VehiculosFactory;
+import AbstractFactory.chinos.Chino;
+import AbstractFactory.vikingos.Vikingo;
 
 /**
  *
@@ -26,6 +28,16 @@ public class AztecasFactory implements AbstractFactory {
             case "vehiculo":
                 return new VehiculosFactory();
         }
+        return null;
+    }
+    
+    @Override
+    public Chino getRazaChina(String type){
+        return null;
+    }
+    
+    @Override
+    public Vikingo getRazaVikinga(String type){
         return null;
     }
 }
