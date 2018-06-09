@@ -5,10 +5,16 @@
  */
 package AbstractFactory.chinos;
 
+import AbstractFactory.chinos.construcciones.Edificacion;
+import AbstractFactory.chinos.personajes.Milicia;
+import AbstractFactory.chinos.vehiculos.Transporte;
+
 /**
  *
  * @author fredy
  */
 public interface Chino {
-    
+    Edificacion getEdificacion(String type);
+    Milicia getMilicia(String type);
+    Transporte getTransporte(String type);
 }
