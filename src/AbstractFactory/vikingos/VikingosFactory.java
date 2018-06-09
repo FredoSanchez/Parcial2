@@ -6,9 +6,9 @@
 package AbstractFactory.vikingos;
 
 import AbstractFactory.AbstractFactory;
-import AbstractFactory.vikingos.construcciones.ConstruccionesFactory;
-import AbstractFactory.vikingos.personajes.PersonajesFactory;
-import AbstractFactory.vikingos.vehiculos.VehiculosFactory;
+import AbstractFactory.vikingos.construcciones.BuildingsFactory;
+import AbstractFactory.vikingos.personajes.CharactersFactory;
+import AbstractFactory.vikingos.vehiculos.VehiculesFactory;
 import AbstractFactory.aztecas.Azteca;
 import AbstractFactory.chinos.Chino;
 /**
@@ -30,12 +30,12 @@ public class VikingosFactory implements AbstractFactory{
     @Override
     public Vikingo getRazaVikinga(String type){
         switch (type) {
-            case "edificacion":
-                return new ConstruccionesFactory();
-            case "milicia":
-                return new PersonajesFactory();
-            case "transporte":
-                return new VehiculosFactory();
+            case "building":
+                return new BuildingsFactory();
+            case "character":
+                return new CharactersFactory();
+            case "vehicle":
+                return new VehiculesFactory();
         }
         return null;
     }
