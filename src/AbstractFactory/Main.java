@@ -8,6 +8,11 @@ package AbstractFactory;
 import AbstractFactory.aztecas.AztecasFactory;
 import AbstractFactory.aztecas.construcciones.Construccion;
 import AbstractFactory.aztecas.Azteca;
+import AbstractFactory.aztecas.personajes.Personaje;
+import AbstractFactory.aztecas.vehiculos.Vehiculo;
+
+import AbstractFactory.chinos.Chino;
+import AbstractFactory.chinos.construcciones.Edificacion;
 
 /**
  *
@@ -17,9 +22,9 @@ public class Main {
     public static void main(String[] args){
         AbstractFactory raza;
         
-        raza = FactoryProducer.getFactory("Azteca");
-        Azteca item = raza.getRazaAzteca("construccion");
-        Construccion tipo = item.getConstruccion("Sacrificio");
+        raza = FactoryProducer.getFactory("China");
+        Chino item = raza.getRazaChina("edificacion");
+        Edificacion tipo = item.getEdificacion("castillo");
         tipo.labor();
         
     }

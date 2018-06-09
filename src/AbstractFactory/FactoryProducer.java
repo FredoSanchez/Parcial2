@@ -6,6 +6,7 @@
 package AbstractFactory;
 
 import AbstractFactory.aztecas.AztecasFactory;
+import AbstractFactory.chinos.ChinosFactory;
 
 /**
  *
@@ -16,6 +17,8 @@ public class FactoryProducer {
         switch(type){
             case "Azteca":
                 return new AztecasFactory();
+            case "China":
+                return new ChinosFactory();
         }
         return null;
     }

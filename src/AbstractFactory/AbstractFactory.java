@@ -6,6 +6,8 @@
 package AbstractFactory;
 
 import AbstractFactory.aztecas.Azteca;
+import AbstractFactory.chinos.Chino;
+import AbstractFactory.vikingos.Vikingo;
 
 /**
  *
@@ -13,4 +15,6 @@ import AbstractFactory.aztecas.Azteca;
  */
 public interface AbstractFactory {
     Azteca getRazaAzteca(String raza);
+    Chino getRazaChina(String type);
+    Vikingo getRazaVikinga(String type);
 }
