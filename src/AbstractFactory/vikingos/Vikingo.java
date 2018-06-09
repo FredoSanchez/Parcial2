@@ -5,13 +5,13 @@
  */
 package AbstractFactory.vikingos;
 
-import AbstractFactory.vikingos.construcciones.Construccion;
-import AbstractFactory.vikingos.personajes.Personaje;
-import AbstractFactory.vikingos.vehiculos.Vehiculo;
+import AbstractFactory.vikingos.construcciones.Building;
+import AbstractFactory.vikingos.personajes.Character;
+import AbstractFactory.vikingos.vehiculos.Vehicle;
 
 
 public interface Vikingo {
-    Construccion getConstruccion(String type);
-    Personaje getPersonaje(String type);
-    Vehiculo getVehiculo(String type);
+    Building getBuilding(String type);
+    Character getCharacter(String type);
+    Vehicle getVehicle(String type);
 }
