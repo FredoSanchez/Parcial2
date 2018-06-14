@@ -10,8 +10,22 @@ package AbstractFactory.aztecas.construcciones;
  * @author fredy
  */
 public class CentroMando implements Construccion{
+    private int vida;
+    public void getNombre(){
+        System.out.println("Centro de mando");
+    }
     @Override
     public void labor(){
         System.out.println("Centro de mando en construcción.");
+    }
+
+    @Override
+    public int getVida() {
+        return vida;
+    }
+
+    @Override
+    public void setVida(int vida) {
+        this.vida=vida;
     }
 }

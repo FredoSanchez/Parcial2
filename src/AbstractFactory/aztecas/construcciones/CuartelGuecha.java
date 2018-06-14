@@ -10,8 +10,18 @@ package AbstractFactory.aztecas.construcciones;
  * @author fredy
  */
 public class CuartelGuecha implements Construccion{
+    private int vida;
     @Override
     public void labor(){
         System.out.println("Cuartel de guerreros Guecha en construcción.");
+    }
+    @Override
+    public int getVida() {
+        return vida;
+    }
+
+    @Override
+    public void setVida(int vida) {
+        this.vida=vida;
     }
 }

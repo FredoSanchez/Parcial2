@@ -10,8 +10,18 @@ package AbstractFactory.aztecas.construcciones;
  * @author fredy
  */
 public class RecolectorCultivo implements Construccion{
+    private int vida;
     @Override
     public void labor(){
         System.out.println("Recolector de cultivo en construcción.");
+    }
+    @Override
+    public int getVida() {
+        return vida;
+    }
+
+    @Override
+    public void setVida(int vida) {
+        this.vida=vida;
     }
 }

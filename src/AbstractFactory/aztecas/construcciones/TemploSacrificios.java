@@ -11,8 +11,18 @@ package AbstractFactory.aztecas.construcciones;
  * @author fredy
  */
 public class TemploSacrificios implements Construccion{
+    private int vida;
     @Override
     public void labor(){
         System.out.println("Azteca sacrificado");
+    }
+    @Override
+    public int getVida() {
+        return vida;
+    }
+
+    @Override
+    public void setVida(int vida) {
+        this.vida=vida;
     }
 }
