@@ -17,6 +17,7 @@ import AbstractFactory.chinos.construcciones.Edificacion;
 
 import AbstractFactory.vikingos.Vikingo;
 import AbstractFactory.vikingos.construcciones.Building;
+
 import java.util.ArrayList;
 
 /**
@@ -27,8 +28,10 @@ public class Menu {
 
     private static Menu menu;
     public Scanner input = new Scanner(System.in);
-    public ArrayList<Object> objetos1= new ArrayList();
-    public ArrayList<Object> objetos2= new ArrayList();
+    public int numFase;
+    boolean gameOver = false;
+    public ArrayList<Object> objetos1 = new ArrayList();
+    public ArrayList<Object> objetos2 = new ArrayList();
 
     public static Menu getInstance() {
         if (menu == null) {
@@ -61,20 +64,29 @@ public class Menu {
                 optn = input.nextInt();
                 switch (optn) {
                     case 1:
-
                         razaP1 = FactoryProducer.getFactory("Azteca");
                         P1.setRace("Azteca");
                         P1.setRaza(razaP1);
+                        Azteca itemA = P1.getRaza().getFromRazaAzteca("construccion");
+                        Construccion tipoA = itemA.getConstruccion("mando");
+                        tipoA.setVida(5000);                        
+                        objetos1.add(tipoA);
                         break;
                     case 2:
                         razaP1 = FactoryProducer.getFactory("China");
                         P1.setRace("China");
                         P1.setRaza(razaP1);
+                        Chino itemC = P1.getRaza().getFromRazaChina("edificacion");
+                        Edificacion tipoC = itemC.getEdificacion("castillo");                        
+                        objetos1.add(tipoC);
                         break;
                     case 3:
                         razaP1 = FactoryProducer.getFactory("Vikinga");
                         P1.setRace("Vikinga");
                         P1.setRaza(razaP1);
+                        Vikingo itemV = P1.getRaza().getFromRazaVikinga("building");
+                        Building tipoV = itemV.getBuilding("godhaus");
+                        objetos1.add(tipoV);
                         break;
                     default:
                         System.out.println("Opción no válida.");
@@ -106,16 +118,26 @@ public class Menu {
                         razaP2 = FactoryProducer.getFactory("Azteca");
                         P2.setRace("Azteca");
                         P2.setRaza(razaP2);
+                        Azteca itemA = P2.getRaza().getFromRazaAzteca("construccion");
+                        Construccion tipoA = itemA.getConstruccion("mando");
+                        tipoA.setVida(5000);
+                        objetos2.add(tipoA);
                         break;
                     case 2:
                         razaP2 = FactoryProducer.getFactory("China");
                         P2.setRace("China");
                         P2.setRaza(razaP2);
+                        Chino itemC = P2.getRaza().getFromRazaChina("edificacion");
+                        Edificacion tipoC = itemC.getEdificacion("castillo");
+                        objetos2.add(tipoC);
                         break;
                     case 3:
                         razaP2 = FactoryProducer.getFactory("Vikinga");
                         P2.setRace("Vikinga");
                         P2.setRaza(razaP2);
+                        Vikingo itemV = P2.getRaza().getFromRazaVikinga("building");
+                        Building tipoV = itemV.getBuilding("godhaus");
+                        objetos2.add(tipoV);
                         break;
                     default:
                         System.out.println("Opción no válida.");
@@ -128,34 +150,106 @@ public class Menu {
 
         }
 
-        if (P1.getRace() == "Azteca") {
-            menuAzteca(P1);
+        while (!gameOver) {
+            switch (P1.getRace()) {
+                case "Azteca":
+                    menuAzteca(P1, objetos1);
+                    break;
+                case "China":
+                    menuChino(P1, objetos1);
+                    break;
+                case "Vikinga":
+                    menuVikingo(P1, objetos1);
+                    break;
+            }
+            switch (P2.getRace()) {
+                case "Azteca":
+                    menuAzteca(P2, objetos2);
+                    break;
+                case "China":
+                    menuChino(P2, objetos2);
+                    break;
+                case "Vikinga":
+                    menuVikingo(P2, objetos2);
+                    break;
+            }
+            numFase += 1;
+            System.out.println("---------------------------------------");
+            System.out.println("-----------FASE "+numFase+"---------------------");
+            System.out.println("---------------------------------------");
         }
 
     }
 
-    public void menuAzteca(Usuario playerA) {
-        int optn = 8;
-
-        while (optn != 1 && optn != 2 && optn != 3 && optn != 4 && optn != 5 && optn != 6 && optn != 7) {
+    public void menuAzteca(Usuario playerA, ArrayList listaA) {
+        int optn = 10;
+        while (optn != 8) {
             System.out.println("---------------------------------------");
             System.out.println(playerA.getNombre() + " ¿Qué desea hacer?");
-            System.out.println("¿Qué desea hacer?");
-            System.out.println("1. Construir Centro de mando");
-            System.out.println("2. Construir Choza de guerrero Aguila");
-            System.out.println("3. Construir cuartel de guerreros Guecha (defensa)");
-            System.out.println("4. Construir cuartel de guerreros Jaguar (ataque)");
-            System.out.println("5. Construir recolector de cultivo");
-            System.out.println("6. Construir recolector de pesca");
-            System.out.println("7. Construir templo de sacrificios");
+            System.out.println("1. Construir Choza de guerrero Aguila");
+            System.out.println("2. Construir cuartel de guerreros Guecha (defensa)");
+            System.out.println("3. Construir cuartel de guerreros Jaguar (ataque)");
+            System.out.println("4. Construir recolector de cultivo");
+            System.out.println("5. Construir recolector de pesca");
+            System.out.println("6. Construir templo de sacrificios");
+            System.out.println("7. Mostrar construcciones");
+            System.out.println("8. Terminar turno");
             try {
                 optn = input.nextInt();
                 switch (optn) {
                     case 1:
+                        Azteca item = playerA.getRaza().getFromRazaAzteca("construccion");
+                        Construccion tipo = item.getConstruccion("chozaAguila");
+                        tipo.setVida(500);
+                        listaA.add(tipo);
+                        tipo.labor();
                         break;
                     case 2:
+                        item = playerA.getRaza().getFromRazaAzteca("construccion");
+                        tipo= item.getConstruccion("cuartelGuecha");
+                        tipo.setVida(600);
+                        listaA.add(tipo);
+                        tipo.labor();
                         break;
                     case 3:
+                        item = playerA.getRaza().getFromRazaAzteca("construccion");
+                        tipo= item.getConstruccion("cuartelJaguares");
+                        tipo.setVida(600);
+                        listaA.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 4:
+                        item = playerA.getRaza().getFromRazaAzteca("construccion");
+                        tipo= item.getConstruccion("cultivo");
+                        tipo.setVida(600);
+                        listaA.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 5:
+                        item = playerA.getRaza().getFromRazaAzteca("construccion");
+                        tipo= item.getConstruccion("pesca");
+                        tipo.setVida(600);
+                        listaA.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 6:
+                        item = playerA.getRaza().getFromRazaAzteca("construccion");
+                        tipo= item.getConstruccion("sacrificio");
+                        tipo.setVida(600);
+                        listaA.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 7:
+                        if (listaA.isEmpty()) {
+                            System.out.println("No hay construcciones");
+                        } else {
+                            System.out.println("-----Consrucciones-----");
+                            listaA.forEach((e) -> {
+                                System.out.println(e.toString());
+                            });
+                        }
+                        break;
+                    case 8:
                         break;
                     default:
                         System.out.println("Opción no válida.");
@@ -169,12 +263,155 @@ public class Menu {
 
     }
 
-    public void menuChino() {
-        System.out.println("hfjjrtjrtj");
+    public void menuChino(Usuario playerC, ArrayList listaC) {
+        int optn = 10;
+        while (optn != 8) {
+            System.out.println("---------------------------------------");
+            System.out.println(playerC.getNombre() + " ¿Qué desea hacer?");
+            System.out.println("1. Construir Choza de guerrero Yaogai");
+            System.out.println("2. Construir cuartel de Leones Fu (defensa)");
+            System.out.println("3. Construir cuartel de Soldados de Terracota (ataque)");
+            System.out.println("4. Construir recolector de agricultura");
+            System.out.println("5. Construir fabrica de polvora");
+            System.out.println("6. Construir caldero de hechizos");
+            System.out.println("7. Mostrar construcciones");
+            System.out.println("8. Terminar turno");
+            try {
+                optn = input.nextInt();
+                switch (optn) {
+                    case 1:
+                        Chino item = playerC.getRaza().getFromRazaChina("edificacion");
+                        Edificacion tipo = item.getEdificacion("chozaYaogai");
+                        listaC.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 2:
+                        item = playerC.getRaza().getFromRazaChina("edificacion");
+                        tipo = item.getEdificacion("cuartelFu");
+                        listaC.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 3:
+                        item = playerC.getRaza().getFromRazaChina("edificacion");
+                        tipo = item.getEdificacion("cuartelTerracota");
+                        listaC.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 4:
+                        item = playerC.getRaza().getFromRazaChina("edificacion");
+                        tipo = item.getEdificacion("agricultura");
+                        listaC.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 5:
+                        item = playerC.getRaza().getFromRazaChina("edificacion");
+                        tipo = item.getEdificacion("polvora");
+                        listaC.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 6:
+                        item = playerC.getRaza().getFromRazaChina("edificacion");
+                        tipo = item.getEdificacion("magia");
+                        listaC.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 7:
+                        if (listaC.isEmpty()) {
+                            System.out.println("No hay construcciones");
+                        } else {
+                            System.out.println("-----Consrucciones-----");
+                            listaC.forEach((e) -> {
+                                System.out.println(e.toString());
+                            });
+                        }
+                        break;
+                    case 8:
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("Caracter o caracteres no válidos.");
+                input.nextLine();
+            }
+        }
     }
 
-    public void menuVikingo() {
-        System.out.println("trewwqx");
+    public void menuVikingo(Usuario playerV, ArrayList listaV) {
+        int optn = 10;
+        while (optn != 8) {
+            System.out.println("---------------------------------------");
+            System.out.println(playerV.getNombre() + " ¿Qué desea hacer?");
+            System.out.println("1. Construir Choza de Gigante");
+            System.out.println("2. Construir cuartel de valquirias (defensa)");
+            System.out.println("3. Construir cuartel de barbaros (ataque)");
+            System.out.println("4. Construir carniceria");
+            System.out.println("5. Construir herrera");
+            System.out.println("6. Construir recolector de maná");
+            System.out.println("7. Mostrar construcciones");
+            System.out.println("8. Terminar turno");
+            try {
+                optn = input.nextInt();
+                switch (optn) {
+                    case 1:
+
+                        Vikingo item = playerV.getRaza().getFromRazaVikinga("building");
+                        Building tipo = item.getBuilding("chozaGigante");
+                        listaV.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 2:
+                        item = playerV.getRaza().getFromRazaVikinga("building");
+                        tipo = item.getBuilding("cuartelValquirias");
+                        listaV.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 3:
+                        item = playerV.getRaza().getFromRazaVikinga("building");
+                        tipo = item.getBuilding("cuartelBarbaros");
+                        listaV.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 4:
+                        item = playerV.getRaza().getFromRazaVikinga("building");
+                        tipo = item.getBuilding("carne");
+                        listaV.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 5:
+                        item = playerV.getRaza().getFromRazaVikinga("building");
+                        tipo = item.getBuilding("herreria");
+                        listaV.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 6:
+                        item = playerV.getRaza().getFromRazaVikinga("building");
+                        tipo = item.getBuilding("mana");
+                        listaV.add(tipo);
+                        tipo.labor();
+                        break;
+                    case 7:
+                        if (listaV.isEmpty()) {
+                            System.out.println("No hay construcciones");
+                        } else {
+                            System.out.println("-----Consrucciones-----");
+                            listaV.forEach((e) -> {
+                                System.out.println(e.toString());
+                            });
+                        }
+                        break;
+                    case 8:
+                        break;
+                    default:
+                        System.out.println("Opción no válida.");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.err.println("Caracter o caracteres no válidos.");
+                input.nextLine();
+            }
+        }
     }
 
 }
