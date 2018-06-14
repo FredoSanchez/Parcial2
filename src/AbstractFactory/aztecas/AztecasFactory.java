@@ -19,7 +19,7 @@ import AbstractFactory.vikingos.Vikingo;
 public class AztecasFactory implements AbstractFactory {
 
     @Override
-    public Azteca getRazaAzteca(String type) {
+    public Azteca getFromRazaAzteca(String type) {
        switch (type) {
             case "construccion":
                 return new ConstruccionesFactory();
@@ -32,12 +32,12 @@ public class AztecasFactory implements AbstractFactory {
     }
     
     @Override
-    public Chino getRazaChina(String type){
+    public Chino getFromRazaChina(String type){
         return null;
     }
     
     @Override
-    public Vikingo getRazaVikinga(String type){
+    public Vikingo getFromRazaVikinga(String type){
         return null;
     }
 }

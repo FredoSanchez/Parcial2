@@ -6,9 +6,6 @@
 package AbstractFactory.chinos;
 
 import AbstractFactory.AbstractFactory;
-//import AbstractFactory.chinos.construcciones.ConstruccionesFactory;
-//import AbstractFactory.chinos.personajes.PersonajesFactory;
-//import AbstractFactory.chinos.vehiculos.VehiculosFactory;
 import AbstractFactory.aztecas.Azteca;
 import AbstractFactory.chinos.construcciones.EdificacionesFactory;
 import AbstractFactory.chinos.personajes.MiliciasFactory;
@@ -21,12 +18,12 @@ import AbstractFactory.vikingos.Vikingo;
  */
 public class ChinosFactory implements AbstractFactory {
     @Override
-    public Azteca getRazaAzteca(String type){
+    public Azteca getFromRazaAzteca(String type){
         return null;
     }
 
     @Override
-    public Chino getRazaChina(String type) {
+    public Chino getFromRazaChina(String type) {
        switch (type) {
             case "edificacion":
                 return new EdificacionesFactory();
@@ -39,7 +36,7 @@ public class ChinosFactory implements AbstractFactory {
     }
     
     @Override
-    public Vikingo getRazaVikinga(String type){
+    public Vikingo getFromRazaVikinga(String type){
         return null;
     }
 }

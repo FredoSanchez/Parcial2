@@ -17,18 +17,18 @@ import AbstractFactory.chinos.Chino;
  */
 public class VikingosFactory implements AbstractFactory{
     @Override
-    public Azteca getRazaAzteca(String type){
+    public Azteca getFromRazaAzteca(String type){
         return null;
     }
 
     @Override
-    public Chino getRazaChina(String type) {
+    public Chino getFromRazaChina(String type) {
        
         return null;
     }
     
     @Override
-    public Vikingo getRazaVikinga(String type){
+    public Vikingo getFromRazaVikinga(String type){
         switch (type) {
             case "building":
                 return new BuildingsFactory();

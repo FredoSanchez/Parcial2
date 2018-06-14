@@ -14,7 +14,7 @@ import AbstractFactory.vikingos.Vikingo;
  * @author fredy
  */
 public interface AbstractFactory {
-    Azteca getRazaAzteca(String raza);
-    Chino getRazaChina(String type);
-    Vikingo getRazaVikinga(String type);
+    Azteca getFromRazaAzteca(String raza);
+    Chino getFromRazaChina(String type);
+    Vikingo getFromRazaVikinga(String type);
 }
