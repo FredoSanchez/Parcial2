@@ -10,7 +10,7 @@ package AbstractFactory;
  * @author fredy
  */
 public class Usuario {
-    private String nombre;
+    private String nombre, race;
     private AbstractFactory Raza;
 
     public String getNombre() {
@@ -28,6 +28,15 @@ public class Usuario {
     public void setRaza(AbstractFactory Raza) {
         this.Raza = Raza;
     }
+
+    public String getRace() {
+        return race;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+    
 
     public Usuario() {
     }
