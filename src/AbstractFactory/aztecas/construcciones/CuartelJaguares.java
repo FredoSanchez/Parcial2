@@ -24,4 +24,9 @@ public class CuartelJaguares implements Construccion{
     public void setVida(int vida) {
         this.vida=vida;
     }
+    
+    @Override
+    public String getNombre() {
+        return "Cuartel de guerreros Jaguar";
+    }
 }

@@ -26,4 +26,9 @@ public class ChozaAguila implements Construccion{
         this.vida=vida;
     }
     
+    @Override
+    public String getNombre() {
+        return "Choza de guerrero Aguila";
+    }
+    
 }

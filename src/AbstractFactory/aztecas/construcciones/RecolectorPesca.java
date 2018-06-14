@@ -24,4 +24,9 @@ public class RecolectorPesca implements Construccion{
     public void setVida(int vida) {
         this.vida=vida;
     }
+    
+    @Override
+    public String getNombre() {
+        return "Recolector de pesca";
+    }
 }

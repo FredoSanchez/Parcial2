@@ -11,7 +11,7 @@ package AbstractFactory.aztecas.construcciones;
  */
 public interface Construccion {
     void labor();
-    
+    String getNombre();
     int getVida();
     void setVida(int vida);
 }

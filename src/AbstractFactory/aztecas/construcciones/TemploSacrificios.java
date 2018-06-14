@@ -25,4 +25,9 @@ public class TemploSacrificios implements Construccion{
     public void setVida(int vida) {
         this.vida=vida;
     }
+    
+    @Override
+    public String getNombre() {
+        return "Templo de sacrificios";
+    }
 }
