@@ -5,6 +5,8 @@
  */
 package AbstractFactory.aztecas.construcciones;
 
+import AbstractFactory.aztecas.personajes.Personaje;
+
 /**
  *
  * @author fredy
@@ -28,5 +30,40 @@ public class CuartelGuecha implements Construccion{
     @Override
     public String getNombre() {
         return "Cuartel de Guerreros Guecha";
+    }
+
+    @Override
+    public void setFaseInicio(int numFase) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getFaseInicio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public void setAlive(boolean estado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean getAlive() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setUnidad(Personaje fighter) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Personaje getUnidad() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Personaje[] getUnidades() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
