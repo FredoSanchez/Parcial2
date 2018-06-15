@@ -5,6 +5,8 @@
  */
 package AbstractFactory.chinos.construcciones;
 
+import AbstractFactory.chinos.personajes.Milicia;
+
 /**
  *
  * @author fredy
@@ -12,4 +14,16 @@ package AbstractFactory.chinos.construcciones;
 public interface Edificacion {
     void labor();
     String getNombre();
+    void setFaseInicio(int numFase);
+    int getFaseInicio();
+    
+    void setAlive(boolean estado);
+    boolean getAlive();    
+    
+    int getVida();
+    void setVida(int vida);
+    
+    void setUnidad(Milicia fighter);
+    Milicia getUnidad();
+    Milicia[] getUnidades();
 }
