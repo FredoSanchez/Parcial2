@@ -24,7 +24,7 @@ public class MiliciasFactory implements Chino {
     public Milicia getMilicia(String type){
         switch(type){
             case "yaoguai":
-                return new Yaoguai();
+                return new Yaogai();
             case "terracota":
                 return new SoldadoTerracota();
             case "leonFu":
