@@ -19,6 +19,7 @@ import AbstractFactory.vikingos.Vikingo;
 import AbstractFactory.vikingos.construcciones.Building;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -64,20 +65,21 @@ public class Menu {
                 optn = input.nextInt();
                 switch (optn) {
                     case 1:
-                        razaP1 = FactoryProducer.getFactory("Azteca");
+                        razaP1 = FactoryProducer.getFactory("Azteca");                        
                         P1.setRace("Azteca");
                         P1.setRaza(razaP1);
                         Azteca itemA = P1.getRaza().getFromRazaAzteca("construccion");
                         Construccion tipoA = itemA.getConstruccion("mando");
-                        tipoA.setVida(5000);                        
+                        tipoA.setVida(5000);
                         objetos1.add(tipoA);
+
                         break;
                     case 2:
                         razaP1 = FactoryProducer.getFactory("China");
                         P1.setRace("China");
                         P1.setRaza(razaP1);
                         Chino itemC = P1.getRaza().getFromRazaChina("edificacion");
-                        Edificacion tipoC = itemC.getEdificacion("castillo");                        
+                        Edificacion tipoC = itemC.getEdificacion("castillo");
                         objetos1.add(tipoC);
                         break;
                     case 3:
@@ -151,9 +153,12 @@ public class Menu {
         }
 
         while (!gameOver) {
+            System.out.println("---------------------------------------");
+            System.out.println("----------------FASE " + (numFase + 1) + "-----------------");
+            System.out.println("---------------------------------------");
             switch (P1.getRace()) {
                 case "Azteca":
-                    menuAzteca(P1, objetos1);
+                    menuAzteca(P1, objetos1, P2, objetos2);
                     break;
                 case "China":
                     menuChino(P1, objetos1);
@@ -164,7 +169,7 @@ public class Menu {
             }
             switch (P2.getRace()) {
                 case "Azteca":
-                    menuAzteca(P2, objetos2);
+                    menuAzteca(P2, objetos2, P1, objetos1);
                     break;
                 case "China":
                     menuChino(P2, objetos2);
@@ -174,16 +179,14 @@ public class Menu {
                     break;
             }
             numFase += 1;
-            System.out.println("---------------------------------------");
-            System.out.println("-----------FASE "+numFase+"---------------------");
-            System.out.println("---------------------------------------");
+
         }
 
     }
 
-    public void menuAzteca(Usuario playerA, ArrayList listaA) {
-        int optn = 10;
-        while (optn != 8) {
+    public void menuAzteca(Usuario playerA, ArrayList listaA, Usuario playerX, ArrayList listaX) {
+        int optn = 11;
+        while (optn != 9) {
             System.out.println("---------------------------------------");
             System.out.println(playerA.getNombre() + " ¿Qué desea hacer?");
             System.out.println("1. Construir Choza de guerrero Aguila");
@@ -193,7 +196,8 @@ public class Menu {
             System.out.println("5. Construir recolector de pesca");
             System.out.println("6. Construir templo de sacrificios");
             System.out.println("7. Mostrar construcciones");
-            System.out.println("8. Terminar turno");
+            System.out.println("8. Atacar a "+playerX.getNombre());
+            System.out.println("9. Terminar turno");
             try {
                 optn = input.nextInt();
                 switch (optn) {
@@ -206,50 +210,53 @@ public class Menu {
                         break;
                     case 2:
                         item = playerA.getRaza().getFromRazaAzteca("construccion");
-                        tipo= item.getConstruccion("cuartelGuecha");
+                        tipo = item.getConstruccion("cuartelGuecha");
                         tipo.setVida(600);
                         listaA.add(tipo);
                         tipo.labor();
                         break;
                     case 3:
                         item = playerA.getRaza().getFromRazaAzteca("construccion");
-                        tipo= item.getConstruccion("cuartelJaguares");
+                        tipo = item.getConstruccion("cuartelJaguares");
                         tipo.setVida(600);
                         listaA.add(tipo);
                         tipo.labor();
                         break;
                     case 4:
                         item = playerA.getRaza().getFromRazaAzteca("construccion");
-                        tipo= item.getConstruccion("cultivo");
+                        tipo = item.getConstruccion("cultivo");
                         tipo.setVida(600);
                         listaA.add(tipo);
                         tipo.labor();
                         break;
                     case 5:
                         item = playerA.getRaza().getFromRazaAzteca("construccion");
-                        tipo= item.getConstruccion("pesca");
+                        tipo = item.getConstruccion("pesca");
                         tipo.setVida(600);
                         listaA.add(tipo);
                         tipo.labor();
                         break;
                     case 6:
                         item = playerA.getRaza().getFromRazaAzteca("construccion");
-                        tipo= item.getConstruccion("sacrificio");
+                        tipo = item.getConstruccion("sacrificio");
                         tipo.setVida(600);
                         listaA.add(tipo);
                         tipo.labor();
                         break;
                     case 7:
-                        if (listaA.isEmpty()) {
-                            System.out.println("No hay construcciones");
-                        } else {
-                            System.out.println("-----Consrucciones-----");
-                            listaA.forEach((e) -> {
-                                System.out.println(e.toString());
-                            });
+                        System.out.println("----------------------------------");
+                        System.out.println("Contruciones:");
+                        int contador = 1;
+                        for (Iterator<Construccion> iter = listaA.iterator(); iter.hasNext();) {
+                            Construccion construccion = iter.next();
+                            System.out.println(contador+". "+construccion.getNombre());
+                            contador++;
                         }
+
                         break;
                     case 8:
+                        break;
+                    case 9:
                         break;
                     default:
                         System.out.println("Opción no válida.");
@@ -316,13 +323,13 @@ public class Menu {
                         tipo.labor();
                         break;
                     case 7:
-                        if (listaC.isEmpty()) {
-                            System.out.println("No hay construcciones");
-                        } else {
-                            System.out.println("-----Consrucciones-----");
-                            listaC.forEach((e) -> {
-                                System.out.println(e.toString());
-                            });
+                        int contador = 1;
+                        System.out.println("----------------------------------");
+                        System.out.println("Contruciones:");
+                        for (Iterator<Edificacion> iter = listaC.iterator(); iter.hasNext();) {
+                            Edificacion edificacion = iter.next();
+                            System.out.println(contador+". "+edificacion.getNombre());
+                            contador++;
                         }
                         break;
                     case 8:
@@ -392,16 +399,17 @@ public class Menu {
                         tipo.labor();
                         break;
                     case 7:
-                        if (listaV.isEmpty()) {
-                            System.out.println("No hay construcciones");
-                        } else {
-                            System.out.println("-----Consrucciones-----");
-                            listaV.forEach((e) -> {
-                                System.out.println(e.toString());
-                            });
+                        System.out.println("----------------------------------");
+                        System.out.println("Contruciones:");
+                        int contador = 1;
+                        for (Iterator<Building> iter = listaV.iterator(); iter.hasNext();) {
+                            Building building = iter.next();
+                            System.out.println(contador+". "+building.getNombre());
+                            contador++;
                         }
                         break;
                     case 8:
+                        
                         break;
                     default:
                         System.out.println("Opción no válida.");
