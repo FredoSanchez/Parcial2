@@ -65,7 +65,7 @@ public class Menu {
                 optn = input.nextInt();
                 switch (optn) {
                     case 1:
-                        razaP1 = FactoryProducer.getFactory("Azteca");                        
+                        razaP1 = FactoryProducer.getFactory("Azteca");
                         P1.setRace("Azteca");
                         P1.setRaza(razaP1);
                         Azteca itemA = P1.getRaza().getFromRazaAzteca("construccion");
@@ -161,10 +161,10 @@ public class Menu {
                     menuAzteca(P1, objetos1, P2, objetos2);
                     break;
                 case "China":
-                    menuChino(P1, objetos1);
+                    menuChino(P1, objetos1, P2, objetos2);
                     break;
                 case "Vikinga":
-                    menuVikingo(P1, objetos1);
+                    menuVikingo(P1, objetos1, P2, objetos2);
                     break;
             }
             switch (P2.getRace()) {
@@ -172,10 +172,10 @@ public class Menu {
                     menuAzteca(P2, objetos2, P1, objetos1);
                     break;
                 case "China":
-                    menuChino(P2, objetos2);
+                    menuChino(P2, objetos2, P1, objetos1);
                     break;
                 case "Vikinga":
-                    menuVikingo(P2, objetos2);
+                    menuVikingo(P2, objetos2, P1, objetos1);
                     break;
             }
             numFase += 1;
@@ -196,7 +196,7 @@ public class Menu {
             System.out.println("5. Construir recolector de pesca");
             System.out.println("6. Construir templo de sacrificios");
             System.out.println("7. Mostrar construcciones");
-            System.out.println("8. Atacar a "+playerX.getNombre());
+            System.out.println("8. Atacar a " + playerX.getNombre());
             System.out.println("9. Terminar turno");
             try {
                 optn = input.nextInt();
@@ -249,12 +249,45 @@ public class Menu {
                         int contador = 1;
                         for (Iterator<Construccion> iter = listaA.iterator(); iter.hasNext();) {
                             Construccion construccion = iter.next();
-                            System.out.println(contador+". "+construccion.getNombre());
+                            System.out.println(contador + ". " + construccion.getNombre());
                             contador++;
                         }
 
                         break;
                     case 8:
+                        switch (playerX.getRace()) {
+                            case "Azteca":
+                                System.out.println("----------------------------------");
+                                System.out.println("¿Que construccion de "+playerX.getNombre()+" desea atacar?:");
+                                contador = 1;
+                                for (Iterator<Construccion> iter = listaX.iterator(); iter.hasNext();) {
+                                    Construccion construccion = iter.next();
+                                    System.out.println(contador + ". " + construccion.getNombre());
+                                    contador++;
+                                }
+                                break;
+                            case "China":
+                                contador = 1;
+                                System.out.println("----------------------------------");
+                                System.out.println("¿Que construccion de "+playerX.getNombre()+" desea atacar?:");
+                                for (Iterator<Edificacion> iter = listaX.iterator(); iter.hasNext();) {
+                                    Edificacion edificacion = iter.next();
+                                    System.out.println(contador + ". " + edificacion.getNombre());
+                                    contador++;
+                                }
+                                break;
+                            case "Vikinga":
+                                System.out.println("----------------------------------");
+                                System.out.println("¿Que construccion de "+playerX.getNombre()+" desea atacar?:");
+                                contador = 1;
+                                for (Iterator<Building> iter = listaX.iterator(); iter.hasNext();) {
+                                    Building building = iter.next();
+                                    System.out.println(contador + ". " + building.getNombre());
+                                    contador++;
+                                }
+
+                                break;
+                        }
                         break;
                     case 9:
                         break;
@@ -270,9 +303,9 @@ public class Menu {
 
     }
 
-    public void menuChino(Usuario playerC, ArrayList listaC) {
-        int optn = 10;
-        while (optn != 8) {
+    public void menuChino(Usuario playerC, ArrayList listaC, Usuario playerX, ArrayList listaX) {
+        int optn = 11;
+        while (optn != 9) {
             System.out.println("---------------------------------------");
             System.out.println(playerC.getNombre() + " ¿Qué desea hacer?");
             System.out.println("1. Construir Choza de guerrero Yaogai");
@@ -282,7 +315,8 @@ public class Menu {
             System.out.println("5. Construir fabrica de polvora");
             System.out.println("6. Construir caldero de hechizos");
             System.out.println("7. Mostrar construcciones");
-            System.out.println("8. Terminar turno");
+            System.out.println("8. Atacar a " + playerX.getNombre());
+            System.out.println("9. Terminar turno");
             try {
                 optn = input.nextInt();
                 switch (optn) {
@@ -328,11 +362,46 @@ public class Menu {
                         System.out.println("Contruciones:");
                         for (Iterator<Edificacion> iter = listaC.iterator(); iter.hasNext();) {
                             Edificacion edificacion = iter.next();
-                            System.out.println(contador+". "+edificacion.getNombre());
+                            System.out.println(contador + ". " + edificacion.getNombre());
                             contador++;
                         }
                         break;
                     case 8:
+                        switch (playerX.getRace()) {
+                            case "Azteca":
+                                System.out.println("----------------------------------");
+                                System.out.println("¿Que construccion de "+playerX.getNombre()+" desea atacar?:");
+                                contador = 1;
+                                for (Iterator<Construccion> iter = listaX.iterator(); iter.hasNext();) {
+                                    Construccion construccion = iter.next();
+                                    System.out.println(contador + ". " + construccion.getNombre());
+                                    contador++;
+                                }
+                                break;
+                            case "China":
+                                contador = 1;
+                                System.out.println("----------------------------------");
+                                System.out.println("¿Que construccion de "+playerX.getNombre()+" desea atacar?:");
+                                for (Iterator<Edificacion> iter = listaX.iterator(); iter.hasNext();) {
+                                    Edificacion edificacion = iter.next();
+                                    System.out.println(contador + ". " + edificacion.getNombre());
+                                    contador++;
+                                }
+                                break;
+                            case "Vikinga":
+                                System.out.println("----------------------------------");
+                                System.out.println("¿Que construccion de "+playerX.getNombre()+" desea atacar?:");
+                                contador = 1;
+                                for (Iterator<Building> iter = listaX.iterator(); iter.hasNext();) {
+                                    Building building = iter.next();
+                                    System.out.println(contador + ". " + building.getNombre());
+                                    contador++;
+                                }
+
+                                break;
+                        }
+                        break;
+                    case 9:
                         break;
                     default:
                         System.out.println("Opción no válida.");
@@ -345,9 +414,9 @@ public class Menu {
         }
     }
 
-    public void menuVikingo(Usuario playerV, ArrayList listaV) {
-        int optn = 10;
-        while (optn != 8) {
+    public void menuVikingo(Usuario playerV, ArrayList listaV, Usuario playerX, ArrayList listaX) {
+        int optn = 11;
+        while (optn != 9) {
             System.out.println("---------------------------------------");
             System.out.println(playerV.getNombre() + " ¿Qué desea hacer?");
             System.out.println("1. Construir Choza de Gigante");
@@ -357,7 +426,8 @@ public class Menu {
             System.out.println("5. Construir herrera");
             System.out.println("6. Construir recolector de maná");
             System.out.println("7. Mostrar construcciones");
-            System.out.println("8. Terminar turno");
+            System.out.println("8. Atacar a " + playerX.getNombre());
+            System.out.println("9. Terminar turno");
             try {
                 optn = input.nextInt();
                 switch (optn) {
@@ -404,12 +474,46 @@ public class Menu {
                         int contador = 1;
                         for (Iterator<Building> iter = listaV.iterator(); iter.hasNext();) {
                             Building building = iter.next();
-                            System.out.println(contador+". "+building.getNombre());
+                            System.out.println(contador + ". " + building.getNombre());
                             contador++;
                         }
                         break;
                     case 8:
-                        
+                        switch (playerX.getRace()) {
+                            case "Azteca":
+                                System.out.println("----------------------------------");
+                                System.out.println("¿Que construccion de "+playerX.getNombre()+" desea atacar?:");
+                                contador = 1;
+                                for (Iterator<Construccion> iter = listaX.iterator(); iter.hasNext();) {
+                                    Construccion construccion = iter.next();
+                                    System.out.println(contador + ". " + construccion.getNombre());
+                                    contador++;
+                                }
+                                break;
+                            case "China":
+                                contador = 1;
+                                System.out.println("----------------------------------");
+                                System.out.println("¿Que construccion de "+playerX.getNombre()+" desea atacar?:");
+                                for (Iterator<Edificacion> iter = listaX.iterator(); iter.hasNext();) {
+                                    Edificacion edificacion = iter.next();
+                                    System.out.println(contador + ". " + edificacion.getNombre());
+                                    contador++;
+                                }
+                                break;
+                            case "Vikinga":
+                                System.out.println("----------------------------------");
+                                System.out.println("¿Que construccion de "+playerX.getNombre()+" desea atacar?:");
+                                contador = 1;
+                                for (Iterator<Building> iter = listaX.iterator(); iter.hasNext();) {
+                                    Building building = iter.next();
+                                    System.out.println(contador + ". " + building.getNombre());
+                                    contador++;
+                                }
+
+                                break;
+                        }
+                        break;
+                    case 9:
                         break;
                     default:
                         System.out.println("Opción no válida.");
