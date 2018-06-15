@@ -14,4 +14,8 @@ public class Herreria implements Building{
     public void labor(){
         System.out.println("Herrera en construcción.");
     }
+    @Override
+    public String getNombre() {
+        return "Herreria";
+    }
 }

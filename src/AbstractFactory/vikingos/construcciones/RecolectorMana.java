@@ -15,4 +15,8 @@ public class RecolectorMana implements Building{
     public void labor(){
         System.out.println("Recolector de mana en construcción");
     }
+    @Override
+    public String getNombre() {
+        return "Recolector de mana";
+    }
 }

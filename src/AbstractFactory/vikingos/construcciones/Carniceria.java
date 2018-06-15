@@ -14,4 +14,8 @@ public class Carniceria implements Building{
     public void labor(){
         System.out.println("Carniceria en construcción.");
     }
+    @Override
+    public String getNombre() {
+        return "Carniceria";
+    }
 }

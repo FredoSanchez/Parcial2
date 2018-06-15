@@ -14,4 +14,8 @@ public class CuartelValquirias implements Building{
     public void labor(){
         System.out.println("Cuartel de valquirias en construcción.");
     }
+    @Override
+    public String getNombre() {
+        return "Cuartel de valquirias";
+    }
 }

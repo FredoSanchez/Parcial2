@@ -14,4 +14,8 @@ public class Godhaus implements Building{
     public void labor(){
         System.out.println("Godhaus en construcción.");
     }
+    @Override
+    public String getNombre() {
+        return "Godhaus";
+    }
 }

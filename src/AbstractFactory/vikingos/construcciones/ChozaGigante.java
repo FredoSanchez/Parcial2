@@ -14,4 +14,8 @@ public class ChozaGigante implements Building{
     public void labor(){
         System.out.println("Choza de gigante en construcción.");
     }
+    @Override
+    public String getNombre() {
+        return "Carniceria";
+    }
 }

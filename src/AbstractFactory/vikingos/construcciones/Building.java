@@ -11,4 +11,5 @@ package AbstractFactory.vikingos.construcciones;
  */
 public interface Building {
     void labor();
+    public String getNombre();
 }
