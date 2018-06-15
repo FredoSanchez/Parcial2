@@ -12,7 +12,7 @@ import AbstractFactory.aztecas.personajes.Personaje;
  * @author fredy
  */
 public class CentroMando implements Construccion{
-    private int vida;
+    private int vida, cantidadR1, cantidadR2, cantidadR3;
     
     @Override
     public void labor(){
@@ -66,6 +66,16 @@ public class CentroMando implements Construccion{
 
     @Override
     public Personaje[] getUnidades() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCantidad(int cantidad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getCantidad() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

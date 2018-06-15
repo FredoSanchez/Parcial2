@@ -9,7 +9,7 @@ import AbstractFactory.aztecas.personajes.Personaje;
 
 /**
  *
- * @author fredy
+ * @author Fredy Alexander Sánchez Pérez 00082817 
  */
 public class ChozaAguila implements Construccion{
     private int vida,numFase;
@@ -67,6 +67,16 @@ public class ChozaAguila implements Construccion{
 
     @Override
     public Personaje[] getUnidades() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setCantidad(int cantidad) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getCantidad() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
