@@ -24,8 +24,12 @@ public interface Construccion {
     int getVida();
     void setVida(int vida);
     
-    void setCantidad(int cantidad);
-    int getCantidad();
+    void setCantidadR1(int cantidad);
+    int getCantidadR1();
+    void setCantidadR2(int cantidad);
+    int getCantidadR2();
+    void setCantidadR3(int cantidad);
+    int getCantidadR3();
     
     void setUnidad(Personaje fighter);
     Personaje getUnidad();
