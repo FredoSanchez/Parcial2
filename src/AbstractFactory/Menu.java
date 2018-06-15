@@ -14,9 +14,11 @@ import AbstractFactory.aztecas.vehiculos.Vehiculo;
 
 import AbstractFactory.chinos.Chino;
 import AbstractFactory.chinos.construcciones.Edificacion;
+import AbstractFactory.chinos.vehiculos.Transporte;
 
 import AbstractFactory.vikingos.Vikingo;
 import AbstractFactory.vikingos.construcciones.Building;
+import AbstractFactory.vikingos.vehiculos.Vehicle;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -71,6 +73,9 @@ public class Menu {
                         Azteca itemA = P1.getRaza().getFromRazaAzteca("construccion");
                         Construccion tipoA = itemA.getConstruccion("mando");
                         tipoA.setVida(5000);
+                        tipoA.setCantidadR1(1000);
+                        tipoA.setCantidadR2(500);
+                        tipoA.setCantidadR3(300);
                         objetos1.add(tipoA);
 
                         break;
@@ -123,6 +128,9 @@ public class Menu {
                         Azteca itemA = P2.getRaza().getFromRazaAzteca("construccion");
                         Construccion tipoA = itemA.getConstruccion("mando");
                         tipoA.setVida(5000);
+                        tipoA.setCantidadR1(1000);
+                        tipoA.setCantidadR2(500);
+                        tipoA.setCantidadR3(300);
                         objetos2.add(tipoA);
                         break;
                     case 2:
@@ -184,8 +192,8 @@ public class Menu {
 
     }
 
-    public void menuAzteca(Usuario playerA, ArrayList listaA, Usuario playerX, ArrayList listaX) {
-        int optn = 11;
+    public void menuAzteca(Usuario playerA, ArrayList listaA, Usuario playerX, ArrayList listaX) {        
+        int optn = 11, contador;
         while (optn != 9) {
             System.out.println("---------------------------------------");
             System.out.println(playerA.getNombre() + " ¿Qué desea hacer?");
@@ -204,49 +212,134 @@ public class Menu {
                     case 1:
                         Azteca item = playerA.getRaza().getFromRazaAzteca("construccion");
                         Construccion tipo = item.getConstruccion("chozaAguila");
-                        tipo.setVida(500);
-                        listaA.add(tipo);
-                        tipo.labor();
+                        tipo.setVida(500);                        
+                        for (Iterator<Construccion> iter = listaA.iterator(); iter.hasNext();) {
+                            Construccion construccion = iter.next();
+                            if(construccion.getNombre()=="Centro de mando"){
+                                if(construccion.getCantidadR1()>= 500 && construccion.getCantidadR2()>=250){
+                                    construccion.setCantidadR1(construccion.getCantidadR1()-500);
+                                    construccion.setCantidadR2(construccion.getCantidadR2()-250);
+                                    tipo.labor();
+                                    listaA.add(tipo);
+                                }
+                                else{
+                                    System.out.println("Cantidad de recursos insuficiente");
+                                }
+                                break;
+                            }                            
+                            
+                        }
+                        //tipo.labor();
                         break;
                     case 2:
                         item = playerA.getRaza().getFromRazaAzteca("construccion");
                         tipo = item.getConstruccion("cuartelGuecha");
                         tipo.setVida(600);
-                        listaA.add(tipo);
-                        tipo.labor();
+                        for (Iterator<Construccion> iter = listaA.iterator(); iter.hasNext();) {
+                            Construccion construccion = iter.next();
+                            if(construccion.getNombre()=="Centro de mando"){
+                                if(construccion.getCantidadR1()>= 500 && construccion.getCantidadR2()>=250){
+                                    construccion.setCantidadR1(construccion.getCantidadR1()-500);
+                                    construccion.setCantidadR2(construccion.getCantidadR2()-250);
+                                    tipo.labor();
+                                    listaA.add(tipo);
+                                }
+                                else{
+                                    System.out.println("Cantidad de recursos insuficiente");
+                                }
+                                break;
+                            }                            
+                            
+                        }
                         break;
                     case 3:
                         item = playerA.getRaza().getFromRazaAzteca("construccion");
                         tipo = item.getConstruccion("cuartelJaguares");
                         tipo.setVida(600);
-                        listaA.add(tipo);
-                        tipo.labor();
+                        for (Iterator<Construccion> iter = listaA.iterator(); iter.hasNext();) {
+                            Construccion construccion = iter.next();
+                            if(construccion.getNombre()=="Centro de mando"){
+                                if(construccion.getCantidadR1()>= 500 && construccion.getCantidadR2()>=250){
+                                    construccion.setCantidadR1(construccion.getCantidadR1()-500);
+                                    construccion.setCantidadR2(construccion.getCantidadR2()-250);
+                                    tipo.labor();
+                                    listaA.add(tipo);
+                                }
+                                else{
+                                    System.out.println("Cantidad de recursos insuficiente");
+                                }
+                                break;
+                            }                            
+                            
+                        }
                         break;
                     case 4:
                         item = playerA.getRaza().getFromRazaAzteca("construccion");
                         tipo = item.getConstruccion("cultivo");
                         tipo.setVida(600);
-                        listaA.add(tipo);
-                        tipo.labor();
+                        for (Iterator<Construccion> iter = listaA.iterator(); iter.hasNext();) {
+                            Construccion construccion = iter.next();
+                            if(construccion.getNombre()=="Centro de mando"){
+                                if(construccion.getCantidadR1()>= 500 && construccion.getCantidadR2()>=250){
+                                    construccion.setCantidadR1(construccion.getCantidadR1()-500);
+                                    construccion.setCantidadR2(construccion.getCantidadR2()-250);
+                                    tipo.labor();
+                                    listaA.add(tipo);
+                                }
+                                else{
+                                    System.out.println("Cantidad de recursos insuficiente");
+                                }
+                                break;
+                            }                            
+                            
+                        }
                         break;
                     case 5:
                         item = playerA.getRaza().getFromRazaAzteca("construccion");
                         tipo = item.getConstruccion("pesca");
                         tipo.setVida(600);
-                        listaA.add(tipo);
-                        tipo.labor();
+                        for (Iterator<Construccion> iter = listaA.iterator(); iter.hasNext();) {
+                            Construccion construccion = iter.next();
+                            if(construccion.getNombre()=="Centro de mando"){
+                                if(construccion.getCantidadR1()>= 500 && construccion.getCantidadR2()>=250){
+                                    construccion.setCantidadR1(construccion.getCantidadR1()-500);
+                                    construccion.setCantidadR2(construccion.getCantidadR2()-250);
+                                    tipo.labor();
+                                    listaA.add(tipo);
+                                }
+                                else{
+                                    System.out.println("Cantidad de recursos insuficiente");
+                                }
+                                break;
+                            }                            
+                            
+                        }
                         break;
                     case 6:
                         item = playerA.getRaza().getFromRazaAzteca("construccion");
                         tipo = item.getConstruccion("sacrificio");
                         tipo.setVida(600);
-                        listaA.add(tipo);
-                        tipo.labor();
+                        for (Iterator<Construccion> iter = listaA.iterator(); iter.hasNext();) {
+                            Construccion construccion = iter.next();
+                            if(construccion.getNombre()=="Centro de mando"){
+                                if(construccion.getCantidadR1()>= 500 && construccion.getCantidadR2()>=250){
+                                    construccion.setCantidadR1(construccion.getCantidadR1()-500);
+                                    construccion.setCantidadR2(construccion.getCantidadR2()-250);
+                                    tipo.labor();
+                                    listaA.add(tipo);
+                                }
+                                else{
+                                    System.out.println("Cantidad de recursos insuficiente");
+                                }
+                                break;
+                            }                            
+                            
+                        }
                         break;
                     case 7:
                         System.out.println("----------------------------------");
                         System.out.println("Contruciones:");
-                        int contador = 1;
+                        contador = 1;
                         for (Iterator<Construccion> iter = listaA.iterator(); iter.hasNext();) {
                             Construccion construccion = iter.next();
                             System.out.println(contador + ". " + construccion.getNombre());
@@ -288,6 +381,7 @@ public class Menu {
 
                                 break;
                         }
+                        optn=input.nextInt();
                         break;
                     case 9:
                         break;
@@ -400,6 +494,7 @@ public class Menu {
 
                                 break;
                         }
+                        optn=input.nextInt();
                         break;
                     case 9:
                         break;
@@ -509,9 +604,9 @@ public class Menu {
                                     System.out.println(contador + ". " + building.getNombre());
                                     contador++;
                                 }
-
                                 break;
                         }
+                        optn=input.nextInt();
                         break;
                     case 9:
                         break;
@@ -524,6 +619,10 @@ public class Menu {
                 input.nextLine();
             }
         }
+    }
+    
+    public void atacarAzteca(ArrayList lista){
+        
     }
 
 }
