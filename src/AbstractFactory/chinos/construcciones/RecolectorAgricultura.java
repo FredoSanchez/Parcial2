@@ -14,4 +14,8 @@ public class RecolectorAgricultura implements Edificacion{
     public void labor(){
         System.out.println("Recolector de agricultura en construcción.");
     }
+    @Override
+    public String getNombre() {
+        return "Recolector de Agricultura";
+    }
 }

@@ -30,7 +30,7 @@ public class EdificacionesFactory implements Chino{
             case "cuartelTerracota":
                 return new CuartelTerracota();
             case "chozaYaogai":
-                return new ChozaYaoguai();
+                return new ChozaYaogai();
         }
         return null;
     }

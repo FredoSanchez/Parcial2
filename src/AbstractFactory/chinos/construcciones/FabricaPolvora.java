@@ -14,4 +14,8 @@ public class FabricaPolvora implements Edificacion{
     public void labor(){
         System.out.println("Fabrica de polvora en construcción.");
     }
+    @Override
+    public String getNombre() {
+        return "Fabrica de polvora";
+    }
 }

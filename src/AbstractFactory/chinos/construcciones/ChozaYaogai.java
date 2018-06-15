@@ -9,13 +9,13 @@ package AbstractFactory.chinos.construcciones;
  *
  * @author fredy
  */
-public class Castillo implements Edificacion{
+public class ChozaYaogai implements Edificacion{
     @Override
     public void labor(){
-        System.out.println("Castillo en construcción.");
+        System.out.println("Choza de Yaogai en construcción.");
     }
     @Override
     public String getNombre() {
-        return "Castillo";
+        return "Choza Yaogai";
     }
 }

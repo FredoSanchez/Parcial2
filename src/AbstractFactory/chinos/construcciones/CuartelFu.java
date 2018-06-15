@@ -14,4 +14,8 @@ public class CuartelFu implements Edificacion{
     public void labor(){
         System.out.println("Cuartel de LeonesFu en construcción.");
     }
+    @Override
+    public String getNombre() {
+        return "Cuartel de leones Fu";
+    }
 }

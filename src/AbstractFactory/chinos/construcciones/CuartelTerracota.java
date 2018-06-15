@@ -14,4 +14,8 @@ public class CuartelTerracota implements Edificacion{
     public void labor(){
         System.out.println("Cuartel de Soldados de Terracota en construcción.");
     }
+    @Override
+    public String getNombre() {
+        return "Cuartel de guerreros de Terracota";
+    }
 }

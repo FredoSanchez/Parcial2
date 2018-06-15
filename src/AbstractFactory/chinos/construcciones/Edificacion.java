@@ -11,4 +11,5 @@ package AbstractFactory.chinos.construcciones;
  */
 public interface Edificacion {
     void labor();
+    String getNombre();
 }

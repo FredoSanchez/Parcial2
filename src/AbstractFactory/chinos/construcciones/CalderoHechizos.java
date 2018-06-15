@@ -15,4 +15,8 @@ public class CalderoHechizos implements Edificacion{
     public void labor(){
         System.out.println("Magia haciendose");
     }
+    @Override
+    public String getNombre() {
+        return "Caldero de hechizos";
+    }
 }
